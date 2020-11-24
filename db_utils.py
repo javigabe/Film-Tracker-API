@@ -1,0 +1,39 @@
+from flask import g
+import sqlite3
+
+DATABASE = '/Users/javigabe/Development/FilmTraker-api/database.db'
+
+
+def get_db():
+    db = getattr(g, '_database', None)
+
+    if db is None:
+        db = g._database = sqlite3.connect(DATABASE)
+        db.row_factory = sqlite3.Row
+
+    return db
+
+
+def query_db(query, args=(), one=False):
+    cur = get_db().execute(query, args)
+    rv = cur.fetchall()
+    cur.close()
+    rows = (rv[0] if rv else None) if one else rv
+    return [dict(row) for row in rows]
+
+
+def write_db(query, args=(), one=False):
+    cur = get_db().execute(query, args)
+    get_db().commit()
+    cur.close()
+
+
+def init_db(app):
+    with app.app_context():
+        db = get_db()
+
+        with app.open_resource('schema.sql', mode='r') as f:
+            db.cursor().executescript(f.read())
+
+        db.commit()
+

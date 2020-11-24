@@ -1,0 +1,19 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+DATABASE	db_utils.py	/^DATABASE = '\/Users\/javigabe\/Development\/films-web\/database.db'$/;"	v
+app	app.py	/^app = Flask(__name__)$/;"	v
+close_connection	app.py	/^def close_connection(exception):$/;"	f
+get_db	db_utils.py	/^def get_db():$/;"	f
+get_ratings	app.py	/^def get_ratings(user_id):$/;"	f
+init_db	db_utils.py	/^def init_db(app):$/;"	f
+query_db	db_utils.py	/^def query_db(query, args=(), one=False):$/;"	f
+ratings	schema.sql	/^CREATE TABLE ratings ($/;"	t
+ratings.film_id	schema.sql	/^    film_id varchar(255),$/;"	F
+ratings.rating	schema.sql	/^    rating int(11),$/;"	F
+ratings.user_id	schema.sql	/^    user_id int(11),$/;"	F
+set_ratings	app.py	/^def set_ratings(user_id):$/;"	f
+write_db	db_utils.py	/^def write_db(query, args=(), one=False):$/;"	f
