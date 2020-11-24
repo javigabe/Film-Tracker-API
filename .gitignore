@@ -1,3 +1,4 @@
 database.db
 *.pyc
 tags
+.idea
